@@ -10,7 +10,8 @@ const App = () => {
   };
   
   const onClickDecrementHandler = () => {
-    setData(getData - 1);
+    if(getData > 1){
+      setData(getData - 1);
   };
 
   return (
