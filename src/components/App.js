@@ -1,58 +1,28 @@
-import React, { useState } from "react";
-import "../styles/App";
+import React,{useState} from 'react'
+import '../styles/App.css';
 
 const App = () => {
-  const [getData, setData] = useState(1);
-
-  const onClickIncrementHandler = () => {
-    setData(getData + 1);
+  const[count,setCount] = useState(1)
+  const logic =()=>{
+  if(count%3===0 && count%5===0){
+    return "fizzbuzz"
+  }
+  else if(count%3===0){
+    return "fizz"
+  }
+  else if(count%5===0){
+    return "buzz"
+  }
+  else{
+    return "normal"
+  }
   };
-
-  const onClickDecrementHandler = () => {
-    if (getData > 1) {
-      setData(getData - 1);
-    }
-  };
-
-  return (
-    <div id="main">
-      <button id="increment" onClick={onClickIncrementHandler}>
-        Increment
-      </button>
-
-      <div id="counter">
-
-        {
-            getData % 3 === 0 && getData % 15 !== 0 && (
-              <div className="fizz">{getData}</div>
-        )
-        }
-
-        {
-            getData % 5 === 0 && getData % 15 !== 0 && (
-              <div className="buzz">{getData}</div>
-        )
-        }
-
-        {
-
-            getData % 15 === 0 && <div className="fizzbuzz">{getData}</div>
-        
-        }
-
-        {
-            getData % 15 !== 0 && getData % 3 !== 0 && getData % 5 !== 0 && (
-              <div className="normal">{getData}</div>
-        )
-        }
+    return (
+      <div id="main">
+        <button id="increment" onClick={()=>setCount(count+1)}>increment</button>
+        <div id = "counter" className={logic()} >{count}</div>
+        <button id="decrement" onClick={()=>setCount(count-1)}>decrement</button>
       </div>
-          
-      <button id="decrement" onClick={onClickDecrementHandler}>
-        Decrement
-      </button>
-      
-    </div>
-  );
-};
-
-export default App;
+    )
+    }
+  export default App;
