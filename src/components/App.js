@@ -1,6 +1,11 @@
+<<<<<<< HEAD
+import React,{useState} from 'react'
+import '../styles/App.css';
+=======
 import React,{useState} from 'react'
 import '../styles/App.css';
 
+>>>>>>> eb18ee7f058345c32d0e75cb64c8d1bad8014bc5
 const App = () => {
   const[count,setCount] = useState(1)
   const logic =()=>{
